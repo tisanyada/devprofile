@@ -20,8 +20,8 @@ router.get('/all', profileController.getAllProfiles);
 // @access  Public
 router.get('/handle/:handle', profileController.getProfileByHandle);
 
-// @route   GET api/profile/handle/:handle
-// @desc    Get profile by handle
+// @route   GET api/profile/handle/:user_id
+// @desc    Get profile by user id
 // @access  Public
 router.get('/user/:user_id', profileController.getProfileById);
 
