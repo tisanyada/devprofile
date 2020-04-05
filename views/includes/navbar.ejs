@@ -1,0 +1,32 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">DevProfile</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/api/profile/all">Developers</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <% if(loggedIn != true){ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/users/register">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/users/login">Login</a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

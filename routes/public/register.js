@@ -3,15 +3,11 @@ const registerController = require('../../controllers/public/register');
 
 
 
-// @route   GET api/users/register
-// @desc    Get the register page
+// @route   POST /api/users/register
+// @desc    Create a new user
 // @access  public
-router.get('/register', registerController.getRegister);
+router.post('/register', registerController.postCreateNewUser);
 
-// @route   POST api/users/register
-// @desc    Post the register page
-// @access  public
-router.post('/register', registerController.postRegister);
 
 
 

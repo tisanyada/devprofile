@@ -1,0 +1,33 @@
+<%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/dashboard.css">
+</head>
+<body>
+
+
+    <!-- the navbar -->
+    <%- include('../includes/navbar.ejs') %>
+    <!-- Dashboard -->
+    <div class="dashboard">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <!-- <h1 class="display-4">Dashboard</h1> -->
+                <p class="lead text-muted">Welcome <%= user.name %> </p>
+                <!-- Dashboard Actions -->
+                <div class="btn-group mb-4 offset-4" role="group">
+                    <a href="/dev/profile" class="btn btn-light">
+                    <i class="fa fa-user-alt text-info mr-1"></i> Edit Profile</a>
+                    <a href="add-experience.html" class="btn btn-light disabled">
+                    <i class="fa fa-pen-fancy text-info mr-1"></i>
+                    Add Experience</a>
+                    <a href="add-education.html" class="btn btn-light disabled">
+                    <i class="fas fa-graduation-cap text-info mr-1"></i>
+                    Add Education</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<%- include('../includes/footer.ejs') %>

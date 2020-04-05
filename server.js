@@ -4,6 +4,8 @@ const logger = require('morgan');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 const app = express();
 
@@ -14,9 +16,16 @@ const db = require('./config/keys');
 // ----------------importing routes------------------------
 const indexRoutes = require('./routes/public/index');
 const registerRoutes = require('./routes/public/register');
-const loginRoutes = require('./routes/auth/login/login');
-const profileRoutes = require('./routes/auth/profile/profile');
-const postRoutes = require('./routes/auth/post/post');
+const loginRoutes = require('./routes/auth/login');
+const dashboardRoutes = require('./routes/auth/dashboard');
+const profileRoutes = require('./routes/auth/profile');
+// const postRoutes = require('./routes/auth/post/post');
+const logoutRoutes = require('./routes/auth/logout');
+
+
+
+// passpot Config [local config]
+require('./config/passport')(passport);
 
 
 // -------------------- MIDDLEWARES-----------------------
@@ -27,34 +36,56 @@ app.use(helmet());
 // serving statci files
 app.use('/public', express.static('public'));
 // body parser
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // view engine
 app.set('view engine', 'ejs');
+// connect flash
+app.use(flash());
+// express session
+app.use(session({
+    secret: 'hiveofassasins',
+    resave: false,
+    saveUninitialized: true
+}));
+
+
+// global vars
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
+
+
 // passport middleware
 app.use(passport.initialize());
+app.use(passport.session());
 
-// passpot Config [jwt config]
-require('./config/passport')(passport);
+
+
 
 
 // using routes
-app.use('/api/users', indexRoutes);
-app.use('/api/users', loginRoutes);
+app.use('/', indexRoutes);
 app.use('/api/users', registerRoutes);
-app.use('/api/profile', profileRoutes);
-app.use('/api/posts', postRoutes);
+app.use('/api/users', loginRoutes);
+app.use('/dev/dashboard', dashboardRoutes);
+app.use('/dev/profile', profileRoutes);
+// app.use('/api/posts', postRoutes);
+app.use('/logout', logoutRoutes);
 
 
 
 // the server
-mongoose.connect(db.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>{
-        app.listen(db.port, ()=> {
+mongoose.connect(db.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        app.listen(db.port, () => {
             console.log('\nconnected to database');
             console.log(`server is running on port ${db.port}\n`);
         });
     })
-    .catch(err =>{
+    .catch(err => {
         console.log(json(err));
     });
