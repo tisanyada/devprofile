@@ -1,0 +1,16 @@
+.bg-text{
+    background-color: rgba(209, 255, 182, 0.452);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+i.fas{
+    font-size: 30px;
+}
+
+.post-body{
+    border: 1px solid rgb(243, 150, 0);
+    padding: 2em 20px 5em 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px 5px rgb(199, 199, 199);
+}

@@ -36,12 +36,12 @@ exports.postCreateNewUser = (req, res) => {
     // password validation
     const passwordSchema = new passwordValidator();
     passwordSchema
-        .is().min(6)
+        .is().min(3)
         .is().max(20)
-        .has().uppercase()                              // Must have uppercase letters
-        .has().lowercase()                              // Must have lowercase letters
-    // .has().digits()                                 // Must have digits
-    // .has().symbols()
+        // .has().uppercase()                              // Must have uppercase letters
+        // .has().lowercase()                              // Must have lowercase letters
+        // .has().digits()                                 // Must have digits
+        // .has().symbols()
 
     if (!passwordSchema.validate(password)) {
         errors.push({ msg: 'Password must be at least 6 characters, contain an upper and lowercase letters' });
@@ -51,6 +51,7 @@ exports.postCreateNewUser = (req, res) => {
     if (errors.length > 0) {
         res.render('public/register', {
             errors,
+            loggedIn: false,
             name,
             email,
             password,
@@ -63,6 +64,7 @@ exports.postCreateNewUser = (req, res) => {
                     errors.push({msg: 'Email already exists'});
                     return res.status(400).render('public/register', {
                         errors,
+                        loggedIn: false,
                         name,
                         email,
                         password

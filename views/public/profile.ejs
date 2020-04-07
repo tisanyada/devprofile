@@ -1,0 +1,154 @@
+<%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/dashboard.css">
+<title><%= profile.user.name %> : Profile </title>
+</head>
+
+<body>
+
+
+    <!-- the navbar -->
+    <%- include('../includes/navbar.ejs') %>
+
+    <!-- Profile -->
+    <div class="profile">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-6">
+                            <a href="/api/profiles" class="btn btn-light mb-3 float-left">Back To Profiles</a>
+                            </div>
+                            <div class="col-6">
+
+                            </div>
+                        </div>
+
+                        <!-- Profile Header -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-body bg-info text-white mb-3">
+                                    <div class="row">
+                                        <div class="col-4 col-md-3 m-auto">
+                                            <img class="rounded-circle" src="/public//images/ui-avatar.png" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <h1 class="display-4 text-center"><%= profile.user.name %> </h1>
+                                        <p class="lead text-center"> <%= profile.company ? 'Developer at ' + profile.company : '' %></p>
+                                        <p> <%= profile.location %>  </p>
+                                        <p>
+                                            <a class="text-white p-2" href="<%= profile.website ? profile.website : '#' %> ">
+                                                <i class="fas fa-globe fa-2x"></i>
+                                            </a>
+                                            <a class="text-white p-2" href="<%= profile.social.twitter ? profile.social.twitter : '#' %> ">
+                                            <i class="fab fa-twitter fa-2x"></i>
+                                            </a>
+                                            <a class="text-white p-2" href="<%= profile.social.facebook ? profile.social.facebook : '#' %> ">
+                                            <i class="fab fa-facebook fa-2x"></i>
+                                            </a>
+                                            <a class="text-white p-2" href="<%= profile.social.linkedin ? profile.social.linkedin : '#' %> ">
+                                            <i class="fab fa-linkedin fa-2x"></i>
+                                            </a>
+                                            <a class="text-white p-2" href="<%= profile.social.instagram ? profile.social.instagram : '#' %> ">
+                                            <i class="fab fa-instagram fa-2x"></i>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Profile About -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-body bg-light mb-3">
+                                <h3 class="text-center text-info"><%= profile.user.name.split(' ')[0] + "'s" %>  Bio</h3>
+                                <p class="lead"> <%= profile.bio ? profile.bio : 'No Bio has been uploaded for this user' %>  </p>
+                                <hr />
+                                <h3 class="text-center text-info">Skill Set</h3>
+                                <div class="row">
+                                    <div class="d-flex flex-wrap justify-content-center align-items-center">
+                                        <% profile.skills.forEach((skill)=>{ %>
+                                            <div class="p-3">
+                                                <i class="fa fa-check"></i> <%= skill %>
+                                            </div>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Creds -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="text-center text-info">Experience</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <% experience.forEach((data)=>{ %>
+                                        <h4> <%= data.company %>  </h4>
+                                        <p> <%= data.from ? data.from.toDateString() + ' - ' : '' %>  <%= data.to ? data.to.toDateString() : 'Current' %>  </p>
+                                        <p>
+                                            <strong>Position:</strong> <%=  data.title %>
+                                        </p>
+                                        <p>
+                                            <strong>Description:</strong> <%= data.description %>
+                                        </p>
+                                    <% }) %>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-center text-info">Education</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <% education.forEach((data)=>{ %>
+                                        <h4> <%= data.school %>  </h4>
+                                        <p> <%= data.from ? data.from.toDateString() + ' - ' : '' %>  <%= data.to ? data.to.toDateString() : 'Current' %>  </p>
+                                        <p>
+                                            <strong>Degree:</strong> <%=  data.degree %>
+                                        </p>
+                                        <p>
+                                            <strong>Description:</strong> <%= data.description %>
+                                        </p>
+                                    <% }) %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Profile Github -->
+                    <div ref="myRef">
+                        <hr />
+                        <h3 class="mb-4">Latest Github Repos</h3>
+                        <div key={repo.id} class="card card-body mb-2">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <h4>
+                                <Link to={repo.html_url} class="text-info" target="_blank"> Repository One
+                                </Link>
+                            </h4>
+                            <p>Repository description</p>
+                            </div>
+                            <div class="col-md-6">
+                            <span class="badge badge-info mr-1">
+                                Stars: 44
+                            </span>
+                            <span class="badge badge-secondary mr-1">
+                                Watchers: 21
+                            </span>
+                            <span class="badge badge-success">
+                                Forks: 122
+                            </span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<%- include('../includes/footer.ejs') %>

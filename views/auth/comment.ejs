@@ -1,0 +1,96 @@
+<%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/comment.css">
+<title><%= user.name %> : Posts/Comments </title>
+</head>
+
+<body>
+
+
+    <!-- the navbar -->
+    <%- include('../includes/navbar.ejs') %>
+
+    <!-- Post -->
+    <div class="post">
+        <div class="container post-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Post Item -->
+                    <div class="card card-body mb-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="#">
+                                <img
+                                    class="rounded-circle d-none d-md-block"
+                                    src="/public/images/ui-avatar.png"
+                                    alt=""
+                                    style="margin-top: -20px;"
+                                />
+                                </a>
+                                <br />
+                                <p class="text-center"> <%= comment.name %>  </p>
+                            </div>
+                            <div class="col-md-10" style="margin-top: 10px;">
+                                <p class="lead"> <%= comment.text %>  </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comment Feed -->
+
+                    <div class="badge bg-danger text-white" style="font-size: 20px;">
+                            comments
+                    </div>
+                    <% if(comment.comments.length > 0){ %>
+                        <% comment.comments.forEach((data)=>{ %>
+                            <div class="comments">
+                                <!-- Comment Item -->
+                                <div class="card card-body mb-3">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <!-- <a href="#">
+                                                <img class="rounded-circle d-none d-md-block" src="/public/images/ui-avatar.png" alt="" />
+                                            </a> -->
+                                            <!-- <br /> -->
+                                            <p class="text-center btn btn-warning"> <%= data.name %>  </p>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <p class="lead">
+                                                <%= data.text %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
+
+
+
+                    <!-- Comment Form -->
+                    <div class="post-form mb-3">
+                        <div class="card card-success">
+                            <div class="card-header bg-success text-white">
+                                Add a comment
+                            </div>
+                            <div class="card-body">
+                                <%- include('./includes/comment_messages.ejs') %>
+                                <form action="/dev/posts/<%= comment.id %>" method="POST">
+                                    <div class="form-group">
+                                        <textarea class="form-control form-control-lg" placeholder="Post a comment" minlength="10" maxlength="500" name="text"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark">comment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<%- include('../includes/footer.ejs') %>

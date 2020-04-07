@@ -1,0 +1,62 @@
+<%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/profiles.css">
+</head>
+
+<body>
+
+
+    <!-- the navbar -->
+    <%- include('../includes/navbar.ejs') %>
+
+    <% if(profiles.length > 0){ %>
+        <!-- profiles found -->
+        <% profiles.forEach((data, index)=>{ %>
+            <div class="profiles">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="display-4 text-center">Developer Profiles</h1>
+                            <p class="lead text-center">Browse and connect with developers</p>
+
+                            <!-- Profile Item -->
+                            <div class="card card-body bg-light mb-3">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img class="rounded-circle" src="/public/images/ui-avatar.png" alt="" />
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-8">
+                                        <h3><%= data.user.name %> </h3>
+                                        <p><%= data.status %> <%= data.company ? 'at ' + data.company : '' %>  </p>
+                                        <p><%= data.location ? data.location : '' %> </p>
+                                        <a href="/api/profiles/<%= data.id %> " class="btn btn-info">View Profile</a>
+                                    </div>
+                                    <div class="col-md-4 d-none d-lg-block">
+                                        <h4>Skill Set</h4>
+                                        <ul class="list-group">
+                                            <% data.skills.forEach((skill)=>{ %>
+                                                <li class="list-group-item">
+                                                    <i class="fa fa-check pr-1"></i><%= skill %>
+                                                </li>
+                                            <% }) %>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+    <% } else { %>
+        <!-- no profiles in database -->
+        <div class="container noProfile">
+            <div class="badge badge-warning">
+                <h1 class="text-center">No Profiles Found </h1>
+            </div>
+        </div>
+
+    <% } %>
+
+
+<%- include('../includes/footer.ejs') %>

@@ -19,7 +19,10 @@ const registerRoutes = require('./routes/public/register');
 const loginRoutes = require('./routes/auth/login');
 const dashboardRoutes = require('./routes/auth/dashboard');
 const profileRoutes = require('./routes/auth/profile');
-// const postRoutes = require('./routes/auth/post/post');
+const experienceRoutes = require('./routes/auth/experience');
+const educationRoutes = require('./routes/auth/education');
+const profilesRoutes = require('./routes/public/profiles');
+const postRoutes = require('./routes/auth/post');
 const logoutRoutes = require('./routes/auth/logout');
 
 
@@ -73,7 +76,10 @@ app.use('/api/users', registerRoutes);
 app.use('/api/users', loginRoutes);
 app.use('/dev/dashboard', dashboardRoutes);
 app.use('/dev/profile', profileRoutes);
-// app.use('/api/posts', postRoutes);
+app.use('/dev/experience', experienceRoutes);
+app.use('/dev/education', educationRoutes);
+app.use('/api/profiles', profilesRoutes);
+app.use('/dev/posts', postRoutes);
 app.use('/logout', logoutRoutes);
 
 

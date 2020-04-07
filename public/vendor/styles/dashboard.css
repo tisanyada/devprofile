@@ -1,3 +1,13 @@
 i{
-    font-size: 2em;
+    font-size: 1em;
+}
+
+a:hover{
+    background-color: rgb(0, 134, 116);
+}
+
+.lead{
+    font-size: 1em;
+    padding: 5px;
+    margin-right: 40px;
 }
