@@ -1,13 +1,15 @@
 <%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/updatexperience.css">
+<title> <%= user.name.split(' ')[0] %> : Experience </title>
 </head>
 
 <body>
 
-    <!-- navbar -->
-    <%- include('../includes/navbar.ejs')  %>
 
+    <!-- the navbar -->
+    <%- include('../includes/navbar.ejs') %>
 
-    <!-- Add Experience -->
+    <!-- experience -->
     <div class="section add-experience">
         <div class="container">
             <div class="row">
@@ -15,18 +17,17 @@
                     <a href="/dev/dashboard" class="btn btn-light">
                         Go Back
                     </a>
-                    <h1 class="display-4 text-center badge-danger">Add Your Experience</h1>
-                    <p class="lead text-center">Add any developer/programming positions that you have had in the past</p>
+                    <h1 class="display-4 text-center btn badge-success updateText">Update Your Experience</h1>
                     <small class="d-block pb-3">* = required field</small>
                     <%- include('./includes/exp_messages.ejs') %>
-                    <form action="/dev/experience" method="POST">
+                    <form action="/dev/experience/update/<%= experience.id %> " method="POST">
                         <div class="form-group">
                             <input
                                 type="text"
                                 class="form-control form-control-lg"
                                 placeholder="* Job Title"
                                 name="title"
-
+                                value="<%= experience.title %>"
                             />
                         </div>
                         <div class="form-group">
@@ -35,7 +36,7 @@
                                 class="form-control form-control-lg"
                                 placeholder="* Company"
                                 name="company"
-
+                                value="<%= experience.company %>"
                             />
                         </div>
                         <div class="form-group">
@@ -44,7 +45,8 @@
                                 class="form-control form-control-lg"
                                 placeholder="Location"
                                 name="location"
-                                />
+                                value="<%= experience.location%>"
+                            />
                         </div>
                             <h6>From Date</h6>
                         <div class="form-group">
@@ -52,6 +54,7 @@
                                 type="date"
                                 class="form-control form-control-lg"
                                 name="from"
+                                value="<%= experience.from%>"
                             />
                         </div>
                             <h6>To Date</h6>
@@ -60,6 +63,7 @@
                                 type="date"
                                 class="form-control form-control-lg"
                                 name="to"
+                                value="<%= experience.to%>"
                             />
                         </div>
                         <div class="form-check mb-4">
@@ -75,10 +79,12 @@
                             </label>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control form-control-lg" placeholder="Job Description" name="description"></textarea>
+                            <textarea class="form-control form-control-lg" placeholder="Job Description" name="description">
+                                <%= experience.description%>
+                            </textarea>
                             <small class="form-text text-muted">Some of your responsibilities, etc</small>
                         </div>
-                        <input type="submit" class="btn btn-outline-danger btn-block mt-4" value="submit"/>
+                        <input type="submit" class="btn btn-outline-success btn-block mt-4" value="update"/>
                     </form>
                 </div>
             </div>
@@ -86,5 +92,5 @@
     </div>
 
 
-    <!-- <script src="/public/vendor/scripts/experience.js"></script> -->
+
     <%- include('../includes/footer.ejs') %>

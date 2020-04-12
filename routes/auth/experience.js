@@ -25,6 +25,12 @@ router.post('/', ensureAuthenticated, experienceController.postCreateExperience)
 router.get('/update/:exp_id', ensureAuthenticated, experienceController.getExperienceById);
 
 
+// @route   POST /dev/experience/update/:exp_id
+// @desc    Update experience by id
+// @access  private
+router.post('/update/:exp_id', ensureAuthenticated, experienceController.postUpdateExperience);
+
+
 
 // @route   GET /dev/experience/:exp_id
 // @desc    Add experience to the user profile

@@ -62,6 +62,58 @@ exports.postCreateEducation = (req, res) => {
 }
 
 
+exports.getEducationById = (req, res) => {
+    Profile.findOne({ 'user': req.user.id })
+        .then(profile => {
+            // Get item remove index
+            const getIndex = profile.education
+                .map(item => item.id)
+                .indexOf(req.params.edu_id)
+
+            res.render('auth/updateEducation',{
+                user: req.user,
+                loggedIn: true,
+                education: profile.education[getIndex]
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).json({
+                msg: 'Education not found',
+                error: err
+            })
+        });
+}
+
+
+
+exports.postUpdateEducation = (req, res)=>{
+    const newEdu = {};
+    const {school, degree, fieldofstudy, from, to, current, description} = req.body;
+    if(school) newEdu.school = school;
+    if(degree) newEdu.degree = degree;
+    if(fieldofstudy) newEdu.fieldofstudy = fieldofstudy;
+    if(current) newEdu.current = current;
+    if(from) newEdu.from = from;
+    if(to) newEdu.to = to;
+    if(description) newEdu.description = description;
+
+    Profile.findOneAndUpdate({'user': req.user.id}, {$set: {education: newEdu } }, {new: true})
+        .then(()=>{
+            req.flash('success_msg', 'updated education successfully');
+            res.redirect('/dev/dashboard');
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).json({
+                msg: 'Education not updated',
+                error: err
+            })
+        });
+}
+
+
+
 exports.postDeleteEducationInfo = (req, res) => {
     Profile.findOne({'user': req.user.id})
         .then(profile =>{

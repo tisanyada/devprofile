@@ -111,7 +111,7 @@ exports.likePost = (req, res) => {
             Post.findById(req.params.id)
                 .then(post => {
                     if (post.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-                        req.flash('error_msg', 'sorry, you have already liked this post');
+                        req.flash('post_msg', 'sorry, you have already liked this post');
                         return res.status(400).redirect('/dev/posts');
                     }
 

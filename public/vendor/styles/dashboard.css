@@ -11,3 +11,12 @@ a:hover{
     padding: 5px;
     margin-right: 40px;
 }
+
+.experience-table{
+    background-color: rgba(96, 210, 255, 0.534);
+    margin-bottom: 5%;
+}
+
+.education-table{
+    background-color: rgba(226, 198, 43, 0.363);
+}
