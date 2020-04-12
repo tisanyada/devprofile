@@ -12,9 +12,23 @@ a:hover{
     margin-right: 40px;
 }
 
+.experience-details{
+    border: 2px solid rgba(96, 210, 255, 0.534);
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 4px 4px 15px 5px rgb(199, 199, 199);
+}
+
+.education-details{
+    border: 2px solid rgba(226, 198, 43, 0.363);
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 4px 4px 15px 5px rgb(199, 199, 199);
+}
+
 .experience-table{
     background-color: rgba(96, 210, 255, 0.534);
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .education-table{

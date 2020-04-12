@@ -41,7 +41,7 @@ exports.getAllProfiles = (req, res) => {
 
 
 
-exports.getProfileById = (req, res)=>{
+exports.getProfileById = (req, res) => {
     Profile.findOne({ '_id': req.params.profile_id })
         .populate('user', ['name', 'avatar'])
         .then(profile => {
@@ -50,7 +50,7 @@ exports.getProfileById = (req, res)=>{
             const repos = new GitHub({
                 username: profile.githubusername
             })
-            res.render('public/profile',{
+            res.render('public/profile', {
                 profile,
                 experience: profile.experience,
                 education: profile.education,
@@ -58,6 +58,24 @@ exports.getProfileById = (req, res)=>{
             });
         })
         .catch(err => {
+            res.status(404).json({ profile: 'There is no profile for this user' });
+        })
+}
+
+
+exports.getProfileByHandle = (req, res) => {
+    Profile.findOne({'handle': req.params.handle})
+        .populate('user', ['name', 'avatar'])
+        .then(profile => {
+
+            console.log(profile);
+            res.render('public/profileByHandle', {
+                profile,
+                loggedIn: false
+            });
+        })
+        .catch(err => {
+            console.log(err);
             res.status(404).json({ profile: 'There is no profile for this user' });
         })
 }

@@ -24,6 +24,12 @@ router.get('/', profilesController.getAllProfiles);
 router.get('/:profile_id', profilesController.getProfileById);
 
 
+// @route   GET /dev/profiles/:handle
+// @desc    Get profile by handle
+// @access  public
+router.get('/handle/:handle', profilesController.getProfileByHandle);
+
+
 
 
 module.exports = router;
