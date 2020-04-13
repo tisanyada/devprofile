@@ -1,5 +1,6 @@
 <%- include('../includes/header.ejs') %>
-<link rel="stylesheet" href="/public/vendor/styles/style.css">
+<link rel="stylesheet" href="/public/vendor/styles/updateProfile.css">
+<title><%= user.name.split(' ')[0] %> : Profile</title>
 </head>
 <body>
 
@@ -17,10 +18,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 m-auto">
-					<a href="/dev/dashboard" class="btn btn-light">
+					<a href="/dev/dashboard" class="badge btn-warning">
 						Go Back
 					</a>
-					<h1 class="display-4 text-center mt-5 btn badge-danger">Update Your Profile</h1>
+					<h1 class="display-4 text-center btn badge-danger header">Update Your Profile</h1>
 					<p class="lead text-left text-">Let's update your profile</p>
 					<small class="d-block pb-3"><span style="color: red;">*</span> = required field</small>
 					<%- include('./includes/profile_messages.ejs') %>
@@ -186,7 +187,7 @@
                                 value="<%= profile.social.instagram %>"
 							/>
 						</div>
-						<input type="submit" class="btn btn-outline-success btn-block mt-4" value="update" />
+						<input type="submit" class="btn btn-outline-danger btn-block mt-4" value="update" />
 					</form>
 				</div>
 			</div>

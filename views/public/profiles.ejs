@@ -1,5 +1,6 @@
 <%- include('../includes/header.ejs') %>
 <link rel="stylesheet" href="/public/vendor/styles/profiles.css">
+<title>Dev - Profiles</title>
 </head>
 
 <body>
@@ -16,8 +17,9 @@
                     <div class="col-md-12">
                         <h1 class="display-4 text-center">Developer Profiles</h1>
                         <p class="lead text-center">Browse and connect with developers</p>
+                        <%- include('./includes/profiles_messages.ejs') %>
                         <% profiles.forEach((data, index)=>{ %>
-        
+
                             <!-- Profile Item -->
                             <div class="card card-body bg-light mb-5">
                                 <div class="row">

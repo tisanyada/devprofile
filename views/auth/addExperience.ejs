@@ -1,4 +1,6 @@
 <%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/addExperience.css">
+<title><%= user.name.split(' ')[0] %> : Experience</title>
 </head>
 
 <body>
@@ -12,10 +14,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 m-auto">
-                    <a href="/dev/dashboard" class="btn btn-light">
+                    <a href="/dev/dashboard" class="badge btn-warning">
                         Go Back
                     </a>
-                    <h1 class="display-4 text-center badge-danger">Add Your Experience</h1>
+                    <h1 class="display-4 text-center btn btn-info header">Add Your Experience</h1>
                     <p class="lead text-center">Add any developer/programming positions that you have had in the past</p>
                     <small class="d-block pb-3">* = required field</small>
                     <%- include('./includes/exp_messages.ejs') %>
@@ -78,7 +80,7 @@
                             <textarea class="form-control form-control-lg" placeholder="Job Description" name="description"></textarea>
                             <small class="form-text text-muted">Some of your responsibilities, etc</small>
                         </div>
-                        <input type="submit" class="btn btn-outline-danger btn-block mt-4" value="submit"/>
+                        <input type="submit" class="btn btn-outline-info btn-block mt-4" value="submit"/>
                     </form>
                 </div>
             </div>

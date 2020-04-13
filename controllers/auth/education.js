@@ -6,6 +6,7 @@ const Profile = require("../../models/Profile")
 
 exports.getAddEducationPage = (req, res) => {
     res.render('auth/addEducation', {
+        user: req.user,
         loggedIn: true
     });
 }

@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark  mb-4">
     <div class="container">
-        <a class="navbar-brand btn" href="/">DevProfile</a>
+        <a class="navbar-brand btn outline" href="/">DevProfile</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,13 +11,13 @@
                 <li class="nav-item">
                     <a class="nav-link btn" href="/api/profiles">Developers</a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link btn disabled" href="/api/users/posts">Posts</a>
+                    </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
                 <% if(loggedIn != true){ %>
-                    <li class="nav-item">
-                        <a class="nav-link btn disabled" href="/api/users/posts">Posts</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link btn" href="/api/users/register">Sign Up</a>
                     </li>

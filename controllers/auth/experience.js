@@ -4,6 +4,7 @@ const Profile = require("../../models/Profile");
 
 exports.getAddExperiencePage = (req, res) => {
     res.render('auth/addExperience', {
+        user: req.user,
         loggedIn: true
     });
 }

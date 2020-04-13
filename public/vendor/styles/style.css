@@ -8,9 +8,9 @@ img {
 
 .landing {
 	position: relative;
-	background: url('/public/images/showcase.jpg') no-repeat;
+	background: url('/public/images/technology.jpg') no-repeat;
 	background-size: cover;
-	background-position: center;
+	background-position: cover;
 	height: 100vh;
 	margin-top: -24px;
 	margin-bottom: -50px;
@@ -46,13 +46,24 @@ img {
 	margin-bottom: 24.7%;
 }
 
+.outline{
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 5px;
+}
+
+.outline:hover{
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 5px;
+	background-color: rgb(75, 199, 64);
+}
+
 .navbar{
 	background-color: rgb(37, 129, 33);
 	box-shadow: 5px 5px 20px 2px rgb(104, 102, 102);
 }
 
 footer{
-  margin-top: 6.5em;
+  margin-top: .5em;
   padding: 8%;
   background-color: rgb(37, 129, 33);
 }

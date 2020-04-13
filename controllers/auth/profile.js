@@ -127,6 +127,7 @@ exports.getProfileUpdatePage = (req, res)=>{
         .then(profile =>{
             if(profile){
                 res.render('auth/editProfile',{
+                    user: req.user,
                     profile,
                     loggedIn: true
                 });

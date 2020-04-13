@@ -1,6 +1,6 @@
 <%- include('../includes/header.ejs') %>
-<link rel="stylesheet" href="/public/vendor/styles/updatexperience.css">
-<title> <%= user.name.split(' ')[0] %> : Education </title>
+<link rel="stylesheet" href="/public/vendor/styles/updateducation.css">
+<title> <%= user.name.split(' ')[0] %> : Update Education </title>
 </head>
 
 <body>
@@ -14,10 +14,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 m-auto">
-                    <a href="/dev/dashboard" class="btn btn-light">
+                    <a href="/dev/dashboard" class="badge btn-warning">
                         Go Back
                     </a>
-                    <h1 class="display-4 text-center btn badge-info updateText">Update Your Education</h1>
+                    <h1 class="display-4 text-center btn btn-danger header">Update Your Education</h1>
                     <small class="d-block pb-3">* = required field</small>
                     <%- include('./includes/exp_messages.ejs') %>
                     <form action="/dev/education/update/<%= education.id %> " method="POST">
@@ -84,7 +84,7 @@
                             </textarea>
                             <small class="form-text text-muted">Some of your responsibilities, etc</small>
                         </div>
-                        <input type="submit" class="btn btn-outline-info btn-block mt-4" value="update"/>
+                        <input type="submit" class="btn btn-danger btn-block mt-4" value="update"/>
                     </form>
                 </div>
             </div>
