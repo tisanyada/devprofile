@@ -17,7 +17,6 @@ exports.getEmptyProfilesPage = (req, res) => {
 
 
 exports.getAllProfiles = (req, res) => {
-
     Profile.find()
         .populate('user', ['name', 'avatar'])
         .then(profiles => {
@@ -65,7 +64,7 @@ exports.getProfileById = (req, res) => {
                         loggedIn: false
                     });
                 })
-                .catch(err =>{
+                .catch(err => {
                     req.flash('error_msg', 'error connecting to github, please check your internet connection');
                     res.status(500).redirect('/api/profiles');
                 });

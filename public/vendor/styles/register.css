@@ -1,0 +1,24 @@
+body{
+    position: relative;
+    background: url('/public/images/register.jpg') no-repeat;
+    background-size: cover;
+    background-position: cover;
+}
+
+
+.form{
+    margin-top: 6%;
+    margin-bottom: 10%;
+}
+
+small{
+    color: red;
+}
+
+.login-form{
+    padding: 5%;
+    border: 2px solid rgba(104, 104, 104, 0.602);
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px 5px rgb(122, 122, 122);
+    background-color: rgba(255, 246, 207, 0.596);
+}

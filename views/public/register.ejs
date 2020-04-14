@@ -1,4 +1,6 @@
 <%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor/styles/register.css">
+<title>Register</title>
 </head>
 
 <body>
@@ -10,10 +12,10 @@
     <!-- Register -->
     <div class="register">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 m-auto">
-                    <h1 class="display-4 text-center btn badge-primary">Sign Up</h1>
-                    <p class="lead text-center">Create your DevConnector account</p>
+            <div class="row form">
+                <div class="col-md-8 m-auto login-form">
+                    <!-- <h1 class="display-4 text-center btn badge-primary">Sign Up</h1> -->
+                    <p class="lead text-center badge badge-primary">Create your DevConnector account</p>
                     <div class="form-group">
                         <!-- the error message -->
                         <%- include('./includes/register_messages.ejs') %>
@@ -22,7 +24,7 @@
                         <div class="form-group">
                             <input
                                 type="name"
-                                class="form-control form-control-sm"
+                                class="form-control form-control-lg"
                                 placeholder="Name"
                                 name="name"
                                 value="<%= typeof name != 'undefined' ? name : '' %>"
@@ -32,7 +34,7 @@
                         <div class="form-group">
                             <input
                                 type="email"
-                                class="form-control form-control-sm"
+                                class="form-control form-control-lg"
                                 placeholder="Email Address"
                                 name="email"
                                 value="<%= typeof email != 'undefined' ? email : '' %>"
@@ -41,7 +43,7 @@
                         <div class="form-group">
                             <input
                                 type="password"
-                                class="form-control form-control-sm"
+                                class="form-control form-control-lg"
                                 placeholder="Password"
                                 name="password"
                                 value="<%= typeof password != 'undefined' ? password : '' %>"
@@ -50,7 +52,7 @@
                         <div class="form-group">
                             <input
                                 type="password"
-                                class="form-control form-control-sm"
+                                class="form-control form-control-lg"
                                 placeholder="Confirm Password"
                                 name="password2"
                                 value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
@@ -63,6 +65,5 @@
         </div>
     </div>
 
-    
 
     <%- include('../includes/footer.ejs') %>

@@ -6,6 +6,10 @@ img {
   	width: 100%;
 }
 
+.header{
+	margin-top: 10%;
+}
+
 .landing {
 	position: relative;
 	background: url('/public/images/technology.jpg') no-repeat;

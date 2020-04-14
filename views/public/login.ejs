@@ -1,4 +1,6 @@
 <%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/public/vendor//styles/login.css">
+<title>Login</title>
 </head>
 
 <body>
@@ -10,32 +12,32 @@
     <!-- Login -->
     <div class="login">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 m-auto">
-                <h1 class="display-4 text-center btn badge-info">Log In</h1>
-                <p class="lead text-center">Sign in to your DevProfile account</p>
-                <%- include('./includes/login_messages.ejs') %>
-                <form action="/api/users/login" method="POST">
-                    <div class="form-group">
-                        <input
-                            type="email"
-                            class="form-control form-control-sm"
-                            placeholder="Email Address"
-                            name="email"
-                            value="<%= typeof email != 'undefined' ? email : '' %>"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <input
-                            type="password"
-                            class="form-control form-control-sm"
-                            placeholder="Password"
-                            name="password"
-                            value="<%= typeof password != 'undefined' ? password : '' %>"
-                        />
-                    </div>
-                    <input type="submit" class="btn btn-info btn-block mt-4" value="Login"/>
-                </form>
+            <div class="row form">
+                <div class="col-md-8 m-auto login-form">
+                    <!-- <h1 class="display-4 text-center btn badge-info">Log In</h1> -->
+                    <p class="lead text-center badge badge-info">Sign in to your DevProfile account</p>
+                    <%- include('./includes/login_messages.ejs') %>
+                    <form action="/api/users/login" method="POST">
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                class="form-control form-control-lg"
+                                placeholder="Email Address"
+                                name="email"
+                                value="<%= typeof email != 'undefined' ? email : '' %>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="password"
+                                class="form-control form-control-lg"
+                                placeholder="Password"
+                                name="password"
+                                value="<%= typeof password != 'undefined' ? password : '' %>"
+                            />
+                        </div>
+                        <input type="submit" class="btn btn-info btn-block mt-4" value="Login"/>
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,0 +1,20 @@
+body{
+    position: relative;
+    background: url('/public/images/developer.png') no-repeat;
+    background-size: cover;
+    background-position: cover;
+}
+
+
+.form{
+    margin-top: 18%;
+}
+
+.login-form{
+    padding: 5%;
+    border: 2px solid rgb(235, 94, 0);
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px 5px rgb(88, 88, 88);
+    background-color: rgba(248, 248, 248, 0.801);
+}
+

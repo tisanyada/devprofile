@@ -36,15 +36,15 @@ exports.postCreateNewUser = (req, res) => {
     // password validation
     const passwordSchema = new passwordValidator();
     passwordSchema
-        .is().min(3)
+        .is().min(6)
         .is().max(20)
-        // .has().uppercase()                              // Must have uppercase letters
-        // .has().lowercase()                              // Must have lowercase letters
+        .has().uppercase()                              // Must have uppercase letters
+        .has().lowercase()                              // Must have lowercase letters
         // .has().digits()                                 // Must have digits
         // .has().symbols()
 
     if (!passwordSchema.validate(password)) {
-        errors.push({ msg: 'Password must be at least 6 characters, contain an upper and lowercase letters' });
+        errors.push({ msg: 'Password must be at least 6 characters, with upper and lowercase letters'});
     }
 
     // ------------------ checking is errors array is null
